@@ -47,6 +47,7 @@ export default function Header({ hasScrolled, onScroll, scrollContainerRef }) {
     }
   };
 
+
   useEffect(() => {
     // Find our scroll container
     const scrollContainer = document.querySelector('.scroll-container');
