@@ -14,14 +14,24 @@ export default function Header({ hasScrolled, onScroll, scrollContainerRef }) {
   const scrollToInfo = () => {
     const container = scrollContainerRef.current;
     const infoSections = document.querySelectorAll('.info-section');
+    const isMobile = window.innerWidth < 768; // Based on the md breakpoint in Tailwind config
 
     if (container && infoSections.length > 0) {
-      const targetSection = infoSections[0];
+      // Find the appropriate info section based on viewport size
+      // On mobile, we want the mobile info section which appears later in the DOM
+      const targetSection = isMobile ?
+        document.querySelector('.block.md\\:hidden .info-section') :
+        document.querySelector('.hidden.md\\:block .info-section');
+
+      if (!targetSection) return; // Safety check
+
       const viewportHeight = window.innerHeight;
       const sectionHeight = targetSection.offsetHeight;
 
       if (!hasScrolled) {
-        const paddingHeight = 128; // 8rem
+        // First click behavior (initial state)
+        // Mobile might need less padding since the header is smaller
+        const paddingHeight = isMobile ? 64 : 128; // 4rem for mobile, 8rem for desktop
         const finalPosition = targetSection.offsetTop - paddingHeight;
         const centerOffset = (viewportHeight - sectionHeight) / 2;
 
@@ -37,7 +47,7 @@ export default function Header({ hasScrolled, onScroll, scrollContainerRef }) {
           container.style.scrollBehavior = 'smooth';
         }, 50);
       } else {
-        // Existing scrolling logic for non-initial state
+        // Subsequent click behavior
         const targetPosition = targetSection.offsetTop - (viewportHeight - sectionHeight) / 2;
         container.scrollTo({
           top: targetPosition,
