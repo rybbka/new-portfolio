@@ -108,7 +108,7 @@ export default function ProjectGrid({ initialProjects }) {
                             </div>
                           </Link>
                         </div>
-                        <p className="text-xs font-['Suisse_Intl_Mono'] text-gray-600 mt-4 text-center w-full">
+                        <p className="text-[0.55rem] md:text-xs font-['Suisse_Intl_Mono'] text-gray-600 mt-4 text-center w-full">
                           {project.fields.title} | {project.fields.description.split('.')[1].trim()} | Image 1 of {project.fields.totalImages}
                         </p>
                       </div>
