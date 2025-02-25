@@ -1,0 +1,10 @@
+@media (min-width: 1540px) {
+  .largeScreenContainer {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  .largeScreenText {
+    font-size: calc(0.875rem + 0.2vw);
+  }
+}
