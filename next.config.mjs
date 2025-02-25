@@ -7,4 +7,4 @@ const config = {
         output: 'standalone',
       };
 
-      export default config;
+export default config;
