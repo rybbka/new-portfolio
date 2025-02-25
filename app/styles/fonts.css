@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Suisse Intl Mono";
+  src: url("/fonts/SuisseIntlMono-Bold.woff2") format("woff2"),
+    url("/fonts/SuisseIntlMono-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Garamond Premier Pro";
+  src: url("/fonts/GaramondPremrPro.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
