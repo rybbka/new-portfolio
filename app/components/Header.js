@@ -78,8 +78,8 @@ export default function Header({ hasScrolled, onScroll, scrollContainerRef }) {
           Info
         </div>
         <div className="text-sm absolute left-1/2 -translate-x-1/2 z-10">
-          <span className="hidden custom:inline">Maison Majkel Kokocinski — Multidisciplinary Design Studio</span>
-          <span className="custom:hidden">MMK - Design Studio</span>
+          <span className="hidden header:inline">Maison Majkel Kokocinski — Multidisciplinary Design Studio</span>
+          <span className="header:hidden">MMK - Design Studio</span>
         </div>
         <div className="relative w-[40px] h-[40px] z-10 cursor-pointer" onClick={handleLogoClick}>
           <Image src="/mmk_logo.png" alt="Maison Majkel Kokocinski Logo" fill className="object-contain" priority />
