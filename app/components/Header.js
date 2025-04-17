@@ -2,10 +2,12 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTheme } from './ThemeProvider';
 
 export default function Header({ hasScrolled, onScroll, scrollContainerRef }) {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
+  const { theme } = useTheme();
 
   const handleLogoClick = () => {
     window.location.reload(); // This will give us exactly the initial state we want
@@ -92,7 +94,13 @@ export default function Header({ hasScrolled, onScroll, scrollContainerRef }) {
           <span className="header:hidden">MMK - Design Studio</span>
         </div>
         <div className="relative w-[40px] h-[40px] z-10 cursor-pointer" onClick={handleLogoClick}>
-          <Image src="/mmk_logo.png" alt="Maison Majkel Kokocinski Logo" fill className="object-contain" priority />
+          <Image
+            src="/mmk_logo.png"
+            alt="Maison Majkel Kokocinski Logo"
+            fill
+            className={`object-contain ${theme === 'dark' ? 'invert' : ''}`}
+            priority
+          />
         </div>
       </div>
     </header>

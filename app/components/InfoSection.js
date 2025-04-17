@@ -1,9 +1,13 @@
+'use client';
 import Image from 'next/image';
 import styles from './InfoSection.module.css';
+import { useTheme } from './ThemeProvider';
 
 export default function InfoSection() {
+  const { theme } = useTheme();
+
   return (
-    <div className="w-full">
+    <div className="w-full text-foreground">
       <div className={`max-w-7xl mx-auto ${styles.largeScreenContainer}`}>
         <div className="grid grid-cols-1 custom:grid-cols-2 gap-x-16">
           <div className="relative w-full mb-16 custom:mb-0">
@@ -18,8 +22,8 @@ export default function InfoSection() {
             />
           </div>
           <div className={`flex flex-col justify-start ${styles.largeScreenText}`}>
-            <h2 className="text-sm mb-8">Majkel Kokocinski - Art Direction, Frontend Dev. & Graphic Design</h2>
-            <p className="text-sm mb-8">
+            <h2 className="text-sm mb-8 text-foreground">Majkel Kokocinski - Art Direction, Frontend Dev. & Graphic Design</h2>
+            <p className="text-sm mb-8 text-foreground">
               Stockholm based Maison Majkel Kokocinski blends creative direction,
               strategic insight, and execution to offer seamless design solutions.
               &apos;Maison&apos; reflects the collaborative spirit within the design studio
@@ -27,7 +31,7 @@ export default function InfoSection() {
               required. This portfolio features a selection of work completed
               between 2016 - 2024.
             </p>
-            <div className="text-sm">
+            <div className="text-sm text-foreground">
               <p>majkelkokocinski@gmail.com</p>
               <p>+46 76 052 60 05</p>
             </div>

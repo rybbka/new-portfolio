@@ -7,6 +7,7 @@ const config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./lib/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: 'class',
   safelist: [
     // Add any classes that might be dynamically generated
   ],

@@ -4,10 +4,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Header from './Header.js';
 import InfoSection from './InfoSection.js';
+import { useTheme } from './ThemeProvider';
+import ThemeToggle from './ThemeToggle'; // For testing dark mode
 
 export default function ProjectGrid({ initialProjects }) {
   const scrollContainerRef = useRef(null);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const { theme } = useTheme();
 
   const handleScroll = (newScrollState) => {
     setHasScrolled(newScrollState);
@@ -25,11 +28,12 @@ export default function ProjectGrid({ initialProjects }) {
   const projects = Array(20).fill(baseProjects).flat();
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <Header hasScrolled={hasScrolled} onScroll={handleScroll} scrollContainerRef={scrollContainerRef} />
+      <ThemeToggle /> {/* For testing - you can remove this later */}
       <div
         ref={scrollContainerRef}
-        className="h-screen overflow-y-auto scroll-container"
+        className="h-screen overflow-y-auto scroll-container bg-background"
         style={{
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
@@ -68,7 +72,7 @@ export default function ProjectGrid({ initialProjects }) {
                             </div>
                           </Link>
                         </div>
-                        <p className="text-xs font-['Suisse_Intl_Mono'] text-gray-600 mt-4 text-center w-full">
+                        <p className="text-xs font-['Suisse_Intl_Mono'] text-foreground opacity-70 mt-4 text-center w-full">
                           {project.fields.title} | {project.fields.description.split('.')[1].trim()} | Image 1 of {project.fields.totalImages}
                         </p>
                       </div>
@@ -108,7 +112,7 @@ export default function ProjectGrid({ initialProjects }) {
                             </div>
                           </Link>
                         </div>
-                        <p className="text-[0.55rem] md:text-xs font-['Suisse_Intl_Mono'] text-gray-600 mt-4 text-center w-full">
+                        <p className="text-[0.55rem] md:text-xs font-['Suisse_Intl_Mono'] text-foreground opacity-70 mt-4 text-center w-full">
                           {project.fields.title} | {project.fields.description.split('.')[1].trim()} | Image 1 of {project.fields.totalImages}
                         </p>
                       </div>
